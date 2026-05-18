@@ -1,0 +1,69 @@
+name: Build WheelBarrow
+
+on:
+  push:
+    branches: [ main ]
+    tags:     [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Install GNU make
+        run: choco install make --no-progress -y
+
+      - name: Build
+        run: make
+
+      - name: Package release structure
+        shell: cmd
+        run: |
+          mkdir dist\scripts
+          copy WheelBarrow.asi dist\scripts\WheelBarrow.asi
+          copy WheelBarrow.cfg dist\scripts\WheelBarrow.cfg
+          copy dinput8.dll     dist\dinput8.dll
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WheelBarrow
+          path: dist/
+          if-no-files-found: error
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: WheelBarrow
+          path: dist/
+
+      - name: Create versioned ZIP
+        run: |
+          cd dist
+          zip -r ../WheelBarrow-${{ github.ref_name }}.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: WheelBarrow-${{ github.ref_name }}.zip
+          generate_release_notes: true
