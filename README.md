@@ -78,7 +78,7 @@ Sometimes the developers will make changes to the maps. I have in mind that this
 
 ### SnowRunner
 
-*   **[WheelBarrow](https://github.com/DoktorJ0nes/DRJNS_WheelBarrow/releases/latest/):** Map-wide persistence for the game SnowRunner.
+*   **[WheelBarrow](https://github.com/DoktorJ0nes/DRJNS_WheelBarrow):** Map-wide persistence for the game SnowRunner.
 
 *   **ChainSaw:** *[UNRELEASED]* Makes all trees and stumps destructable in the game SnowRunner.
 
@@ -86,7 +86,7 @@ Sometimes the developers will make changes to the maps. I have in mind that this
 
 ### RoadCraft
 
-*   **[JackHammer](https://github.com/DoktorJ0nes/DRJNS_JackHammer/releases/latest/):** Map-wide persistence for the game RoadCraft.
+*   **[JackHammer](https://github.com/DoktorJ0nes/DRJNS_JackHammer):** Map-wide persistence for the game RoadCraft.
 
 *   **JerryCan:** *[UNRELEASED]* Changes the fuel consumption of all your trucks by a multiplier of your choice in the game RoadCraft.
 
