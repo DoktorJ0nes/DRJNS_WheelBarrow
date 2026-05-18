@@ -2,10 +2,7 @@ name: Build WheelBarrow
 
 on:
   push:
-    branches: [ main ]
-    tags:     [ 'v*' ]
-  pull_request:
-    branches: [ main ]
+    tags: [ 'v*' ]
   workflow_dispatch:
 
 jobs:
@@ -44,7 +41,6 @@ jobs:
 
   release:
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
 
     permissions:
