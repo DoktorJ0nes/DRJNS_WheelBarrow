@@ -46,7 +46,7 @@ But be warned! Persistent mud on the whole map means that mud will get deeper an
 
 ## Installation & Usage
 
-1. Download the .zip file from the [Releases](https://github.com/DoktorJ0nes/DRJNS_WheelBarrow/releases/latest) and unpack it.
+1. Download the WheelBarrow-Version.zip file from the [Releases](https://github.com/DoktorJ0nes/DRJNS_WheelBarrow/releases/latest) and unpack it.
 
 2. Copy the `dinput8.dll` file and `scripts` folder into the same folder where your SnowRunner.exe is located.
 
