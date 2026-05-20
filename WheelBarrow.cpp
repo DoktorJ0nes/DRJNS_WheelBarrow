@@ -198,8 +198,7 @@ void ApplyAllPatches() {
         }
     }
 
-    // Errors are always reported, even when the welcome message is disabled in the config.
-    if (!showWelcome && failed.empty()) return;
+    if (!showWelcome) return;
 
     std::string msg;
 
@@ -216,7 +215,7 @@ void ApplyAllPatches() {
 	
     msg += "ALWAYS MAKE BACKUPS!\nYou can disable this message in the WheelBarrow.cfg file.";
 
-    UINT icon = failed.empty() ? MB_ICONINFORMATION : MB_ICONERROR;
+    UINT icon = failed.empty() ? 0 : MB_ICONERROR;
     MessageBoxA(NULL, msg.c_str(), "WheelBarrow by Dr_J0nes", MB_OK | icon);
 }
 
